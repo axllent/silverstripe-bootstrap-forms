@@ -15,6 +15,6 @@
 		"issues": "https://github.com/axllent/silverstripe-bootstrap-forms/issues"
 	},
 	"require": {
-		"silverstripe/cms": "3.*"
+		"silverstripe/framework": "3.*"
 	}
 }
