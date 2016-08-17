@@ -1,6 +1,6 @@
 {
 	"name": "axllent/silverstripe-bootstrap-forms",
-	"description": "An extension to add CSS classes to Silverstripe forms to play nicely with Twitter Bootstrap",
+	"description": "An extension to add CSS classes to Silverstripe forms to play nicer with Twitter Bootstrap",
 	"type": "silverstripe-module",
 	"homepage": "https://github.com/axllent/silverstripe-bootstrap-forms",
 	"keywords": ["silverstripe", "bootstrap", "forms"],

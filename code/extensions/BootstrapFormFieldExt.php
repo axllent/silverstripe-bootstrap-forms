@@ -1,25 +1,64 @@
 <?php
+/**
+ * Extention of FormField
+ */
 
 class BootstrapFormFieldExt extends Extension
 {
-    public function onBeforeRender()
+
+    private static $is_admin_url = null;
+
+    public function onBeforeRender($form_field)
     {
-        if ($css = $this->detectStyle()) {
-            $this->owner->addExtraClass($css);
+        /* We don't want this in the CMS */
+        if ($this->isAdminURL()) {
+            return;
+        }
+
+        /* Work out which template is set to be used */
+        $form_template = $this->detectTemplate($form_field->getTemplates());
+
+        if ($form_template == 'TextField') {
+            $form_field->addExtraClass('form-control');
+        } elseif ($form_field == 'DropdownField') {
+            $form_field->addExtraClass('form-control');
+        } elseif ($form_field == 'CheckboxSetField') {
+            $form_field->setTemplate('BootstrapCheckboxSetField');
+        } elseif ($form_field == 'OptionsetField') {
+            $form_field->setTemplate('BootstrapOptionsetField');
+        } elseif ($form_field == 'CheckboxField') {
+            /* hardcoded layout in CheckboxField_holder.ss */
+        } elseif ($form_field == 'FormAction') {
+            if ($form_field->getAttribute('type') == 'submit') {
+                $form_field->addExtraClass('btn btn-primary');
+            } else {
+                $form_field->addExtraClass('btn btn-default');
+            }
         }
     }
 
-    public function detectStyle()
+    public function detectTemplate($templates)
     {
-        $type = $this->owner->getAttribute('type');
-        $class = $this->owner->getAttribute('class');
-
-        if ($class == '' || $type == 'checkbox') {
-            return false; // possibly a header
-        } elseif ($type == 'submit') {
-            return 'btn btn-primary';
+        $manifest = SS_TemplateLoader::instance()->getManifest();
+        if (Config::inst()->get('SSViewer', 'theme_enabled')) {
+            $theme = Config::inst()->get('SSViewer', 'theme');
+        } else {
+            $theme = null;
         }
+        foreach ((array) $templates as $template) {
+            if ($manifest->getCandidateTemplate($template, $theme)) {
+                return $template;
+            }
+        }
+        return false;
+    }
 
-        return 'form-control';
+    public function isAdminURL()
+    {
+        if (is_null(self::$is_admin_url)) {
+            $req = Controller::curr()->getRequest()->getURL();
+            self::$is_admin_url = preg_match('/^admin/i', $req) ? true : false;
+        }
+        return self::$is_admin_url;
     }
 }
