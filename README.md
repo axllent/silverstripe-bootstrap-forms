@@ -1,4 +1,4 @@
-# Add bootstrap classes to all form fields
+# Add CSS classes to Silverstripe forms to play nicer with Twitter Bootstrap
 
 An extension to add CSS classes to Silverstripe forms to play nicer with Twitter Bootstrap.
 
