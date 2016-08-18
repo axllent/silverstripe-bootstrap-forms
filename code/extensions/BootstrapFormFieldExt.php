@@ -15,18 +15,19 @@ class BootstrapFormFieldExt extends Extension
             return;
         }
 
-        /* Work out which template is set to be used */
-        $form_template = $this->detectTemplate($form_field->getTemplates());
-
-        if (in_array($form_template, array('TextField', 'DropdownField', 'TextareaField'))) {
-            $form_field->addExtraClass('form-control');
-        } elseif ($form_field == 'CheckboxSetField') {
+        if ($form_field instanceof CheckboxSetField) {
             $form_field->setTemplate('BootstrapCheckboxSetField');
-        } elseif ($form_field == 'OptionsetField') {
+        } elseif ($form_field instanceof OptionsetField) {
             $form_field->setTemplate('BootstrapOptionsetField');
-        } elseif ($form_field == 'CheckboxField') {
+        } elseif ($form_field instanceof CheckboxField) {
             /* hardcoded layout in CheckboxField_holder.ss */
-        } elseif ($form_field == 'FormAction') {
+        } elseif (
+            $form_field instanceof TextField ||
+            $form_field instanceof DropdownField ||
+            $form_field instanceof TextareaField
+        ) {
+            $form_field->addExtraClass('form-control');
+        } elseif ($form_field instanceof FormAction) {
             if ($form_field->getAttribute('type') == 'submit') {
                 $form_field->addExtraClass('btn btn-primary');
             } else {

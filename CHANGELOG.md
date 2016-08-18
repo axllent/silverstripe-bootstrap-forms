@@ -2,6 +2,9 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.1.1]
+- Use instanceof rather than relying on actual template names
+
 ## [1.1.0]
 
 - Complete rewrite to (for the most part) not impact CMS
