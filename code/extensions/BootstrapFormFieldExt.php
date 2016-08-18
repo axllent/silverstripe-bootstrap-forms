@@ -18,9 +18,7 @@ class BootstrapFormFieldExt extends Extension
         /* Work out which template is set to be used */
         $form_template = $this->detectTemplate($form_field->getTemplates());
 
-        if ($form_template == 'TextField') {
-            $form_field->addExtraClass('form-control');
-        } elseif ($form_field == 'DropdownField') {
+        if (in_array($form_template, array('TextField', 'DropdownField', 'TextareaField'))) {
             $form_field->addExtraClass('form-control');
         } elseif ($form_field == 'CheckboxSetField') {
             $form_field->setTemplate('BootstrapCheckboxSetField');
