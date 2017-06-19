@@ -2,6 +2,9 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.0]
+- SilverStripe 4
+
 ## [1.1.1]
 - Use instanceof rather than relying on actual template names
 
