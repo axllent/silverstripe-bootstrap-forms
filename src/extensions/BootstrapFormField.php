@@ -43,7 +43,7 @@ class BootstrapFormField extends Extension
             if ($form_field->getAttribute('type') == 'submit') {
                 $form_field->addExtraClass('btn btn-primary');
             } else {
-                $form_field->addExtraClass('btn btn-default');
+                $form_field->addExtraClass('btn btn-default btn-secondary');
             }
         }
     }
