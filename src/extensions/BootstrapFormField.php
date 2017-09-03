@@ -52,7 +52,7 @@ class BootstrapFormField extends Extension
     {
         if (is_null(self::$is_admin_url)) {
             $req = Controller::curr()->getRequest()->getURL();
-            self::$is_admin_url = preg_match('/^admin/i', $req) ? true : false;
+            self::$is_admin_url = preg_match('/^admin\//i', $req) ? true : false;
         }
         return self::$is_admin_url;
     }
