@@ -32,7 +32,7 @@ class BootstrapFormField extends Extension
         } elseif ($form_field instanceof $optionsetfield) {
             $form_field->setTemplate('Forms/BootstrapOptionsetField');
         } elseif ($form_field instanceof $checkboxfield) {
-            // Have to fix this with CSS - see README.md
+            // We overwrite default CheckboxField_holder.ss
         } elseif (
             $form_field instanceof $textfield ||
             $form_field instanceof $dropdownfield ||
