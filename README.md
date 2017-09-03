@@ -11,15 +11,16 @@ to the rendered fields. It does not produce [bootstrap-specific html](http://get
 
 `FormField` unfortunately only has a `$this->extend('onBeforeRender', $this);` in `Field` that allows manupulation of the
 field itself, and not the parent field_holder. This allows only a very limited amount of flexibility, and prevents an
-extension from changing the field_holder. Due to this, the extension requires at least one additional CSS "fix" for
-`CheckboxField`.
+extension from changing the field_holder.
 
 Form submit buttons get a `btn btn-primary` class added, and any other buttons get a `btn btn-default` class added.
 
 Forms will still need some additional CSS styling (to set spacing) as the form's field_holders cannot be modified to the
 limitations mentioned above.
 
+
 ## Features
+
 It adds the `form-control` CSS class to all front-end:
 - TextField (and extended classes)
 - TextAreaField
@@ -29,27 +30,14 @@ It renders CheckboxSetField & OptionsetField with different field templates (see
 
 It does **not**:
 - Modify field holders (`onBeforeRender()` does not allow that)
-- Does not modify CheckboxField (CSS required for that, see below)
 - Support FieldGroup (you'll need to use CSS to do that)
 - Apply bootstrap-specific CSS classes to form messages
+
 
 ## Requirements
 
 - SilverStripe ^4
 
-You also need to add the following to your CSS (customise to your requirements) to override Bootstrap's
-padding for checkbox fields (otherwise the checkbox isn't visible as it is positioned absolutely outside
-of the containing div):
-
-```css
-form .field.checkbox {
-    padding-left: 20px;
-}
-form .field.checkbox label {
-    padding-top: 2px;
-    padding-left: 5px;
-}
-```
 
 ## Installation
 
