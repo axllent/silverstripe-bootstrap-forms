@@ -1,7 +1,7 @@
 {
 	"name": "axllent/silverstripe-bootstrap-forms",
 	"description": "An extension to add CSS classes to Silverstripe forms to play nicer with Twitter Bootstrap",
-	"type": "silverstripe-module",
+	"type": "silverstripe-vendormodule",
 	"homepage": "https://github.com/axllent/silverstripe-bootstrap-forms",
 	"keywords": ["silverstripe", "bootstrap", "forms"],
 	"license": "The MIT License (MIT)",
