@@ -27,11 +27,15 @@ class BootstrapFormField extends Extension
         $textareafield      = 'SilverStripe\\Forms\\TextareaField';
         $formaction         = 'SilverStripe\\Forms\\FormAction';
 
-        if ($form_field instanceof $checkboxsetfield) {
-            $form_field->setTemplate('Forms/BootstrapCheckboxSetField');
-        } elseif ($form_field instanceof $optionsetfield) {
-            $form_field->setTemplate('Forms/BootstrapOptionsetField');
-        } elseif ($form_field instanceof $checkboxfield) {
+        if (!$form_field->getTemplate()) {
+            if ($form_field instanceof $checkboxsetfield) {
+                $form_field->setTemplate('Forms/BootstrapCheckboxSetField');
+            } elseif ($form_field instanceof $optionsetfield) {
+                $form_field->setTemplate('Forms/BootstrapOptionsetField');
+            }
+        }
+        
+        if ($form_field instanceof $checkboxfield) {
             // We overwrite default CheckboxField_holder.ss
         } elseif (
             $form_field instanceof $textfield ||
