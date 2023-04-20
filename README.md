@@ -47,4 +47,4 @@ You can install it via composer with `composer require axllent/silverstripe-boot
 
 ## Basic usage
 
-Simply install (and flush), ass the checkbox CSS to your styles and you're good to go.
+Simply install (and flush), add the checkbox CSS to your styles and you're good to go.
