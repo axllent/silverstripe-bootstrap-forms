@@ -9,7 +9,7 @@ This includes all forms such as login forms, password reset forms, as well as an
 It extends `FormField` to try provide a transparent "manipulation" of the rendered form fields, adding some bootstrap CSS
 to the rendered fields. It does not produce [bootstrap-specific html](http://getbootstrap.com/css/#forms) for your forms.
 
-`FormField` unfortunately only has a `$this->extend('onBeforeRender', $this);` in `Field` that allows manupulation of the
+`FormField` unfortunately only has a `$this->extend('onBeforeRender', $this);` in `Field` that allows manipulation of the
 field itself, and not the parent field_holder. This allows only a very limited amount of flexibility, and prevents an
 extension from changing the field_holder.
 
@@ -36,7 +36,7 @@ It does **not**:
 
 ## Requirements
 
-- SilverStripe ^4
+- Silverstripe ^4 || ^5
 
 
 ## Installation
