@@ -36,7 +36,7 @@ It does **not**:
 
 ## Requirements
 
-- Silverstripe ^4 || ^5
+- Silverstripe ^4 || ^5 || ^6
 
 
 ## Installation
