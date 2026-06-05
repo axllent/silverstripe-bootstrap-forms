@@ -2,6 +2,10 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.5]
+
+- Silverstripe 6 support
+
 ## [2.0.4]
 
 - Silverstripe 5 support
